@@ -1,0 +1,72 @@
+/* Reset básico para garantir que o layout fique igual em todos os navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6; /* Tom cinza claro para elegância e leitura descansada */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1a73e8; /* Azul clássico do ecossistema Google/Gemini */
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* TRATAMENTO DA IMAGEM:
+   Aqui permitimos que a imagem seja redimensionada. 
+   O uso de 'border-radius: 50%' deixa a foto circular, comum em blogs modernos. */
+.foto-perfil {
+    display: block;
+    margin: 0 auto 1.5rem;
+    width: 150px;       /* Largura controlada pelo CSS */
+    height: 150px;      /* Altura igual para manter o círculo perfeito */
+    object-fit: contain; /* Garante que o logo não seja cortado */
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 50%;
+}
+
+.perfil {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Estilização dos campos de interesses em formato de 'Cards' para ficar mais elegante */
+.interesses {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-left: 5px solid #1a73e8; /* Detalhe lateral para destacar o tópico */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    color: #1a73e8;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #777;
+}

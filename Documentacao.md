@@ -1308,9 +1308,251 @@ body.inverted .divisor-vertical { background: #444; }
 Agora seu projeto está com "cara de profissional", seguindo o que o mercado espera de um desenvolvedor. Pronto para o próximo passo?
 -   Observações do cliclo: Foi organizado todo o codigo para que seja melhor compreendido, mesmo enviando os arquivos para AI manter o contexto, a extrutura dos Hobbis foi perdida.
 ### 7.1 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
+-   Prompt Sugerido:Quero que adicione comentario para todas as funções no .css
+-   Saida do Gemini: Adicionar comentários detalhados no CSS é excelente para revisar a lógica do layout depois de um tempo sem mexer no código.
+
+Aqui está o seu arquivo **`style.css`** com comentários explicando o que cada seletor, classe e propriedade está fazendo na estrutura do seu blog:
+
+```css
+/* =========================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+
+/* * (Asterisco): Seletor universal. Aplica as regras a todos os elementos da página. 
+   Aqui, removemos margens e preenchimentos padrão que os navegadores trazem. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Faz com que bordas e padding não aumentem o tamanho total do elemento */
+}
+
+/* body: Define as configurações de base do documento, como fonte e cor de fundo. */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Suaviza a troca de cores do Modo Invertido */
+}
+
+/* body.inverted: Estilo aplicado quando a classe "inverted" é adicionada ao body via JavaScript. */
+body.inverted {
+    background-color: #1a1a1a;
+    color: #f4f7f6;
+}
+
+/* .container: Centraliza o conteúdo principal e limita a largura para não espalhar em telas muito grandes. */
+.container {
+    max-width: 800px;
+    margin: 2rem auto; /* 2rem em cima/baixo e 'auto' nas laterais para centralizar */
+    padding: 0 1rem;
+}
+
+/* =========================================
+   2. HEADER E FOOTER (Topo e Rodapé)
+   ========================================= */
+
+/* header: O topo roxo do site. */
+header {
+    background-color: #6a1b9a;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative; /* Permite que o botão de toggle seja posicionado em relação ao header */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* body.inverted header: Altera o tom do roxo no modo escuro. */
+body.inverted header { background-color: #4a148c; }
+
+/* #btn-toggle: O botão de alternar cores (Lua/Sol). Selecionado pelo ID. */
+#btn-toggle {
+    position: absolute; /* Fixa o botão em um lugar específico dentro do header */
+    top: 10px; 
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer; /* Muda o ícone do mouse para a "mãozinha" de clique */
+}
+
+/* footer: Rodapé com informações de copyright. */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* =========================================
+   3. COMPONENTES DE CARD
+   ========================================= */
+
+/* .interesses: O container que segura os cards. Usa Grid para dar espaçamento entre eles. */
+.interesses {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* .card: O bloco branco que contém cada seção (Música, Hobbies, etc). */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-left: 5px solid #6a1b9a; /* Barra lateral decorativa */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* body.inverted .card: Ajusta o fundo do card para cinza escuro no modo invertido. */
+body.inverted .card { background: #2d2d2d; border-left-color: #ba68c8; }
+
+/* .card h3: Títulos dentro dos cards. */
+.card h3 { margin-bottom: 0.5rem; color: #6a1b9a; }
+body.inverted .card h3 { color: #ba68c8; }
+
+/* .linha-separadora: A tag <hr> personalizada que você pediu nos Hobbies. */
+.linha-separadora {
+    border: 0; 
+    height: 1px;
+    background: #eee; 
+    margin: 1rem 0;
+}
+body.inverted .linha-separadora { background: #444; }
+
+/* =========================================
+   4. SEÇÃO PERFIL E INFOS (Card "Sobre Mim")
+   ========================================= */
+
+/* .foto-perfil: A foto principal do topo. */
+.foto-perfil {
+    display: block; 
+    margin: 0 auto 1.5rem;
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: contain;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* .info-pessoal-container: Alinha foto e lista lado a lado. */
+.info-pessoal-container {
+    display: flex; 
+    align-items: center; 
+    gap: 1.5rem; 
+    margin-top: 1rem;
+}
+
+/* .foto-info: A foto quadrada dentro do card "Mais sobre mim". */
+.foto-info {
+    width: 120px; 
+    height: 120px;
+    border-radius: 8px; 
+    object-fit: cover;
+}
+
+/* .lista-info: A lista de Nome, Nascimento, etc. */
+.lista-info { list-style: none; } /* Remove as bolinhas da lista */
+
+/* .lista-info li strong: O texto em negrito da lista (ex: "Nome:"). */
+.lista-info li strong { color: #6a1b9a; }
+body.inverted .lista-info li strong { color: #ba68c8; }
+
+/* =========================================
+   5. MÚSICA (VÍDEOS)
+   ========================================= */
+
+/* .video-list-container: Flexbox que permite rolar os vídeos para o lado se a tela for pequena. */
+.video-list-container {
+    display: flex; 
+    gap: 1rem;
+    overflow-x: auto; /* Adiciona barra de rolagem horizontal se necessário */
+    padding: 1rem 0;
+}
+
+/* .video-item: Define o tamanho de cada moldura de vídeo. */
+.video-item {
+    flex: 0 0 250px; /* Impede o vídeo de encolher, trava em 250px de largura */
+    height: 150px;
+    background: #000; 
+    border-radius: 8px; 
+    overflow: hidden; /* Garante que o vídeo não saia das bordas arredondadas */
+}
+
+/* .video-item iframe: O conteúdo do YouTube em si ocupando todo o espaço do item. */
+.video-item iframe { width: 100%; height: 100%; }
+
+/* =========================================
+   6. HOBBIES (ACCORDION / DETAILS)
+   ========================================= */
+
+/* .accordion-container p: Textos descritivos acima das listas de Hobbies. */
+.accordion-container p { margin-top: 1rem; font-weight: 500; }
+
+/* details: Tag de menu expansível. */
+details {
+    cursor: pointer; 
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem; 
+    margin-bottom: 1rem;
+}
+
+/* summary: O título da lista que clicamos para abrir. */
+summary { font-weight: bold; color: #6a1b9a; }
+body.inverted summary { color: #ba68c8; }
+
+/* .item-lista: Layout de cada item (Filme/Jogo) dentro da lista expandida. */
+.item-lista { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; }
+.item-lista img { width: 60px; height: 60px; border-radius: 4px; }
+
+/* =========================================
+   7. VIAGENS (LAYOUT HEXAGONAL)
+   ========================================= */
+
+/* .viagem-container: Alinha Texto | Foto | Linha | Foto | Texto. */
+.viagem-container {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 10px;
+}
+
+/* .img-viagem: Aplica o recorte hexagonal. */
+.img-viagem {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover;
+    /* polygon: Define os 6 pontos do hexágono em coordenadas X e Y. */
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: #6a1b9a; 
+    padding: 2px;
+}
+
+/* .divisor-vertical: A linha fina no centro do card de viagens. */
+.divisor-vertical { 
+    width: 1px; 
+    height: 60px; 
+    background: #eee; 
+}
+
+/* =========================================
+   8. RESPONSIVIDADE (Mobile)
+   ========================================= */
+
+/* @media: Quando a tela for menor que 600px, as regras abaixo são aplicadas. */
+@media (max-width: 600px) {
+    /* Faz os itens que estavam lado a lado ficarem um embaixo do outro. */
+    .info-pessoal-container, .viagem-container {
+        flex-direction: column; 
+        text-align: center;
+    }
+    /* A linha divisora de viagens vira horizontal no celular. */
+    .divisor-vertical { width: 60px; height: 1px; }
+}
+```
+-   Observações do cliclo: Adicionando comentarios ao .css
 ### 2.0 
 -   Prompt Sugerido:
 -   Saida do Gemini: 

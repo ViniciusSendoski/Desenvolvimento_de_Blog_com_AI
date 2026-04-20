@@ -487,10 +487,96 @@ function toggleHeaderColor() {
 
 ---
 
-### 2.0 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
+### 3.0 
+-   Prompt Sugerido: Tendo o codigo atual. 
+Altere "Gostos musicais" para "Minha Relação com a musica".
+Quero fazer uma lista de objetos, sendo cada objeto um video do youtube.
+Esta lista deve ir da esquerda para a direita.
+ Em baixo da lista um texto que acompanha demarcando videos por ano, por exemplo de 2020 até 2021, use os videos abaixo, por enquanto.
+<https://www.youtube.com/watch?v=IxX_QHay02M&list=RDIxX_QHay02M&start_radio=1&pp=ygUDY2F0oAcB>
+<https://www.youtube.com/watch?v=J---aiyznGQ&list=RDJ---aiyznGQ&start_radio=1&pp=ygUDY2F0oAcB>
+<https://www.youtube.com/watch?v=rXh8Hvo7gfs&pp=ygUDY2F0>
+-   Saida do Gemini: Para atender ao seu pedido, vamos alterar o título da seção e criar uma estrutura de "carrossel" ou lista horizontal para os vídeos do YouTube, organizada por um marcador de tempo (ano).
+
+Aqui estão as alterações necessárias:
+
+### 1. Alteração no HTML (`Index.html`)
+
+**Onde editar:** Substitua o conteúdo do primeiro `<div class="card">` (que era "Gostos Musicais") por este novo bloco. Note que alteramos os links do YouTube para o formato `/embed/`, que é o necessário para funcionar dentro do site.
+
+```html
+<div class="card">
+    <h3>Minha Relação com a musica</h3>
+    <p>Abaixo estão alguns dos vídeos que marcaram minha trajetória musical nos últimos anos.</p>
+    
+    <div class="video-list-container">
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/IxX_QHay02M" title="Video 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/J---aiyznGQ" title="Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/rXh8Hvo7gfs" title="Video 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <p class="timeline-label">Período: 2020 — 2021</p>
+</div>
+```
+
+### 2. Alteração no CSS (`style.css`)
+
+Para que a lista vá da esquerda para a direita e os vídeos tenham um tamanho adequado, adicione estes estilos ao final do seu arquivo `style.css`:
+
+```css
+/* Container que permite o scroll horizontal se houver muitos vídeos */
+.video-list-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto; /* Permite rolar para o lado se necessário */
+    padding: 1rem 0;
+    scrollbar-width: thin; /* Deixa a barra de rolagem mais fina no Firefox */
+}
+
+/* Estilo de cada objeto de vídeo */
+.video-item {
+    flex: 0 0 250px; /* Impede que o vídeo encolha, mantendo 250px de largura */
+    height: 150px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Texto que demarca o ano abaixo da lista */
+.timeline-label {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    color: #6a1b9a;
+    font-size: 0.9rem;
+}
+
+/* Ajuste da cor do texto do ano no modo invertido */
+body.inverted .timeline-label {
+    color: #ba68c8;
+}
+```
+
+### O que foi feito:
+1.  **Mudança de Título:** O `<h3>` foi atualizado conforme solicitado.
+2.  **Lista Horizontal:** Usamos `display: flex` no container dos vídeos. O comando `flex: 0 0 250px` garante que os vídeos fiquem um ao lado do outro em linha, sem "esmagar" o tamanho deles.
+3.  **Embed do YouTube:** Os links que você enviou foram convertidos para o formato de incorporação (`/embed/`). Sem isso, o YouTube bloqueia a exibição dentro de outros sites por segurança.
+4.  **Marcador de Ano:** Adicionamos uma classe `.timeline-label` para destacar o período de 2020-2021 logo abaixo da lista de vídeos.
+
+Se você adicionar mais vídeos no futuro dentro da `video-list-container`, eles continuarão aparecendo da esquerda para a direita automaticamente!
+-   Observações do cliclo: Implementação de uma lista horizontal de videos no youtube
 
 ---
 

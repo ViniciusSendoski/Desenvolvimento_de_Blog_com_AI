@@ -261,13 +261,25 @@ body.inverted .lista-info li strong {
     text-align: center;
 }
 
-/* Estilo das imagens centrais */
+/* Estilo das imagens centrais (Agora Hexagonais) */
 .img-viagem {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 100px; /* Aumentei um pouco para o formato aparecer melhor */
+    height: 100px;
     object-fit: cover;
-    border: 2px solid #6a1b9a;
+    /* Aplica o recorte em formato de hexágono */
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: #6a1b9a; /* Fundo roxo que aparece como borda se houver padding */
+    padding: 2px;
+    transition: transform 0.3s;
+}
+
+.img-viagem:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Ajuste para o Modo Invertido */
+body.inverted .img-viagem {
+    background: #ba68c8;
 }
 
 /* Linha divisora vertical no meio */

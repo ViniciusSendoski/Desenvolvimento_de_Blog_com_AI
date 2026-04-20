@@ -849,18 +849,161 @@ body.inverted .lista-info li strong {
 
 ---
 
-### 2.0 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
+### 6.0 
+-   Prompt Sugerido: Tendo o codigo.  
+Vamos alterar o Card lazer, agora será apenas "Viagens".
+para o corpo teremos um texto na parte superior.
+um texto a esquerda, Imagem no centro esquerda, Linha dividindo no meio, Imagem no centro direita, texto a direita.
+-   Saida do Gemini: Para atualizar o card de lazer para o novo formato de "Viagens" com o layout espelhado (Texto | Imagem | Linha | Imagem | Texto), precisaremos utilizar **Flexbox** para alinhar esses cinco elementos lado a lado.
+
+Aqui estão as alterações necessárias:
+
+### 1. Alteração no HTML (`Index.html`)
+
+**Onde editar:** Substitua o último card ("Lazer e Viagens") pelo bloco abaixo:
+
+```html
+<div class="card">
+    <h3>Viagens</h3>
+    <p class="texto-superior-viagem">Explorar novos lugares é uma das minhas maiores paixões. Aqui estão dois destinos que marcaram minha trajetória.</p>
+    
+    <div class="viagem-container">
+        <div class="viagem-bloco">
+            <p>A calmaria das montanhas e o contato com a natureza me renovam.</p>
+        </div>
+        
+        <img src="https://via.placeholder.com/100" alt="Viagem 1" class="img-viagem">
+
+        <div class="divisor-vertical"></div>
+
+        <img src="https://via.placeholder.com/100" alt="Viagem 2" class="img-viagem">
+
+        <div class="viagem-bloco">
+            <p>A energia das grandes metrópoles e a arquitetura urbana me fascinam.</p>
+        </div>
+    </div>
+</div>
+```
+
+### 2. Alteração no CSS (`style.css`)
+
+**Onde editar:** Adicione estes estilos ao final do seu arquivo `style.css` para criar o alinhamento horizontal e a linha divisória vertical.
+
+```css
+/* Espaçamento para o texto superior do card */
+.texto-superior-viagem {
+    margin-bottom: 1.5rem;
+}
+
+/* Container principal das viagens */
+.viagem-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Estilo dos blocos de texto (esquerda e direita) */
+.viagem-bloco {
+    flex: 1;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Estilo das imagens centrais */
+.img-viagem {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #6a1b9a;
+}
+
+/* Linha divisora vertical no meio */
+.divisor-vertical {
+    width: 1px;
+    height: 60px;
+    background-color: #eee;
+}
+
+/* Ajustes para o Modo Invertido */
+body.inverted .img-viagem {
+    border-color: #ba68c8;
+}
+
+body.inverted .divisor-vertical {
+    background-color: #444;
+}
+
+/* Responsividade: em telas pequenas, vira uma coluna */
+@media (max-width: 600px) {
+    .viagem-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .divisor-vertical {
+        width: 60px;
+        height: 1px;
+    }
+}
+```
+
+### O que mudou:
+1.  **Estrutura Simétrica:** O `viagem-container` usa `display: flex` para colocar os 5 elementos (Texto, Imagem, Linha, Imagem, Texto) na mesma linha.
+2.  **Divisor Vertical:** Criamos uma `div` com largura de `1px` para simular a linha de separação no centro.
+3.  **Imagens:** As imagens foram configuradas como círculos (`border-radius: 50%`) para manter a harmonia com a sua foto de perfil.
+4.  **Texto Superior:** Adicionamos um parágrafo logo abaixo do título para contextualizar a seção.
+5.  **Responsividade:** Caso o blog seja visualizado em um celular, os elementos se empilham verticalmente para não ficarem esmagados.
+-   Observações do cliclo: Com certeza uma caixa preta esse codigo .css no extado atual, objetivo alcançado.
 
 ---
 
-### 2.0 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
-### 2.0 
+### 6.1 
+-   Prompt Sugerido:Tendo o codigo.
+já foi usado circulo em imagem antes. para o card Viagens altere o circulo sobre a imagem para hexagono.
+-   Saida do Gemini: Para transformar as imagens de viagens em hexágonos, usaremos a propriedade CSS `clip-path`. Essa é a forma mais moderna de criar formas geométricas em imagens sem precisar editá-las fora do código.
+
+Aqui estão as alterações:
+
+### 1. Alteração no CSS (`style.css`)
+
+**Onde editar:** Procure pela classe `.img-viagem` e substitua o `border-radius: 50%` pelo `clip-path`. Como bordas comuns não funcionam bem com o `clip-path`, usaremos um pequeno ajuste de filtro para manter a identidade visual roxa.
+
+```css
+/* Estilo das imagens centrais (Agora Hexagonais) */
+.img-viagem {
+    width: 100px; /* Aumentei um pouco para o formato aparecer melhor */
+    height: 100px;
+    object-fit: cover;
+    /* Aplica o recorte em formato de hexágono */
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: #6a1b9a; /* Fundo roxo que aparece como borda se houver padding */
+    padding: 2px;
+    transition: transform 0.3s;
+}
+
+.img-viagem:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Ajuste para o Modo Invertido */
+body.inverted .img-viagem {
+    background: #ba68c8;
+}
+```
+
+### 2. Dica de ajuste no HTML (`Index.html`)
+
+No seu arquivo HTML, dentro do card de **Viagens**, você não precisa mudar nada na estrutura, mas caso as imagens fiquem muito coladas na linha divisória por serem mais largas que o círculo anterior, o CSS acima com `justify-content: space-between` que já temos no `.viagem-container` cuidará do alinhamento.
+
+### Explicação Técnica (Conceitual):
+* **`clip-path`**: Esta propriedade define uma região de recorte. O que está dentro dos pontos do `polygon` fica visível, o que está fora é escondido. 
+* **Os pontos do polígono**: Os valores `(25% 0%, 75% 0%...)` são as coordenadas (X e Y) dos 6 cantos do hexágono.
+* **Por que remover o `border`?**: Bordas padrões do CSS são retangulares. Quando você "corta" a imagem com `clip-path`, a borda sumiria. Por isso, usamos o `background` com um pouco de `padding` para simular o contorno roxo.
+
+Agora suas imagens de viagens terão esse visual geométrico diferenciado do restante do site! 🚀
+-   Observações do cliclo: Alteração visual em viagens.
+### 7.0 
 -   Prompt Sugerido:
 -   Saida do Gemini: 
 -   Observações do cliclo:

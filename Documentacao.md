@@ -692,13 +692,73 @@ body.inverted .linha-separadora {
 ---
 
 ### 4.1 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
+-   Prompt Sugerido: Tendo o codigo. 
+acima que cada lista em hobbis teve existir um texto, por exemplo:
+...
+Os tres jogos que estou tentando platinar na Steam e não estou conseguindo.
+Lista Jogos
+...
+-   Saida do Gemini: Para adicionar os textos descritivos antes de cada lista na seção de **Hobbies**, você deve inserir um parágrafo (`<p>`) logo acima de cada tag `<details>`. 
+
+Aqui está como o bloco do card de **Hobbies** deve ficar no seu **`Index.html`**:
+
+```html
+<div class="card">
+    <h3>Hobbies</h3>
+    <p>Estes são os meus passatempos favoritos e as obras que acompanho no momento.</p>
+    
+    <hr class="linha-separadora"> 
+
+    <div class="accordion-container">
+        <p>Filmes que assisti recentemente e recomendo a experiência.</p>
+        <details>
+            <summary>Lista Filmes</summary>
+            </details>
+
+        <p>Os três jogos que estou tentando platinar na Steam e não estou conseguindo.</p>
+        <details>
+            <summary>Lista Jogos</summary>
+            </details>
+
+        <p>Manhwas com as melhores artes e histórias que estou lendo.</p>
+        <details>
+            <summary>Lista Manhwa</summary>
+            </details>
+
+        <p>Light Novels que me prenderam pela escrita e world-building.</p>
+        <details>
+            <summary>Lista Light Novel</summary>
+            </details>
+    </div>
+</div>
+```
+
+### Ajuste Sugerido no CSS (`style.css`)
+Como o texto agora fica colado na lista anterior, adicione este pequeno ajuste ao seu CSS para melhorar o espaçamento visual:
+
+**Onde editar:** No seu arquivo `style.css`, procure a regra `details` ou adicione ao final:
+
+```css
+.accordion-container p {
+    margin-top: 1.5rem; /* Espaço maior antes do texto descritivo */
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+details {
+    margin-top: 0.5rem; /* Espaço menor entre o texto e a sua respectiva lista */
+    /* ... mantenha o restante das propriedades que já existem ... */
+}
+```
+
+### O que foi alterado:
+1.  **Estrutura de Conteúdo:** Inserimos parágrafos descritivos antes de cada seção expansível dentro da `accordion-container`.
+2.  **Organização Visual:** O texto agora serve como uma introdução direta para a "Lista" que vem logo abaixo, seguindo o exemplo que você deu sobre os jogos da Steam.
+-   Observações do cliclo: Implementação Manual no HTML, parte de hobbis falta a incersão manual
 
 ---
 
-### 2.0 
+### 5.0 
 -   Prompt Sugerido:
 -   Saida do Gemini: 
 -   Observações do cliclo:

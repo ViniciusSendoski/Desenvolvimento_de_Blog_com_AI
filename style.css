@@ -185,3 +185,13 @@ body.inverted .timeline-label {
 body.inverted .linha-separadora {
     background: #444;
 }
+.accordion-container p {
+    margin-top: 1.5rem; /* Espaço maior antes do texto descritivo */
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+details {
+    margin-top: 0.5rem; /* Espaço menor entre o texto e a sua respectiva lista */
+    /* ... mantenha o restante das propriedades que já existem ... */
+}

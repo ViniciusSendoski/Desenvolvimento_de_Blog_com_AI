@@ -1,4 +1,6 @@
-/* Reset básico */
+/* =========================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -10,33 +12,37 @@ body {
     background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
-    transition: background-color 0.3s, color 0.3s; /* Transição suave para a inversão */
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* CLASSE DE INVERSÃO TOTAL */
 body.inverted {
-    background-color: #1a1a1a; /* Fundo escuro */
-    color: #f4f7f6;           /* Texto claro */
+    background-color: #1a1a1a;
+    color: #f4f7f6;
 }
 
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* =========================================
+   2. HEADER E FOOTER
+   ========================================= */
 header {
-    background-color: #6a1b9a; /* Roxo Principal */
+    background-color: #6a1b9a;
     color: white;
     text-align: center;
     padding: 1rem 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Ajuste do Header quando o corpo está invertido */
-body.inverted header {
-    background-color: #4a148c; /* Roxo mais escuro no modo invertido */
-}
+body.inverted header { background-color: #4a148c; }
 
 #btn-toggle {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 10px; right: 10px;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid white;
     color: white;
@@ -46,60 +52,16 @@ body.inverted header {
     z-index: 10;
 }
 
-.container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-details {
-    margin-top: 1rem;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.5rem;
-}
-
-summary {
-    font-weight: bold;
-    color: #6a1b9a; /* Roxo nos títulos expansíveis */
-    outline: none;
-}
-
-body.inverted summary {
-    color: #ba68c8; /* Roxo mais claro para ler melhor no fundo escuro */
-}
-
-.item-lista {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    cursor: default;
-}
-
-.item-lista img {
-    width: 80px;
-    height: 80px;
-    border-radius: 4px;
-    object-fit: cover;
-}
-
-.foto-perfil {
-    display: block;
-    margin: 0 auto 1.5rem;
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    border: 4px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border-radius: 50%;
-}
-
-.perfil {
+footer {
     text-align: center;
-    margin-bottom: 3rem;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #777;
 }
 
+/* =========================================
+   3. COMPONENTES DE CARD
+   ========================================= */
 .interesses {
     display: grid;
     gap: 1.5rem;
@@ -108,204 +70,104 @@ body.inverted summary {
 .card {
     background: white;
     padding: 1.5rem;
-    border-left: 5px solid #6a1b9a; /* Detalhe lateral Roxo */
+    border-left: 5px solid #6a1b9a;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: background-color 0.3s;
 }
 
-/* Ajuste dos cards no modo invertido */
-body.inverted .card {
-    background: #2d2d2d;
-    border-left-color: #ba68c8;
-}
+body.inverted .card { background: #2d2d2d; border-left-color: #ba68c8; }
 
-.card h3 {
-    margin-bottom: 0.5rem;
-    color: #6a1b9a;
-}
-
-body.inverted .card h3 {
-    color: #ba68c8;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    color: #777;
-}
-
-/* Container que permite o scroll horizontal se houver muitos vídeos */
-.video-list-container {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto; /* Permite rolar para o lado se necessário */
-    padding: 1rem 0;
-    scrollbar-width: thin; /* Deixa a barra de rolagem mais fina no Firefox */
-}
-
-/* Estilo de cada objeto de vídeo */
-.video-item {
-    flex: 0 0 250px; /* Impede que o vídeo encolha, mantendo 250px de largura */
-    height: 150px;
-    background: #000;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.video-item iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Texto que demarca o ano abaixo da lista */
-.timeline-label {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 0.5rem;
-    color: #6a1b9a;
-    font-size: 0.9rem;
-}
-
-/* Ajuste da cor do texto do ano no modo invertido */
-body.inverted .timeline-label {
-    color: #ba68c8;
-}
+.card h3 { margin-bottom: 0.5rem; color: #6a1b9a; }
+body.inverted .card h3 { color: #ba68c8; }
 
 .linha-separadora {
-    border: 0;
-    height: 1px;
-    background: #eee;
-    margin: 1rem 0;
+    border: 0; height: 1px;
+    background: #eee; margin: 1rem 0;
+}
+body.inverted .linha-separadora { background: #444; }
+
+/* =========================================
+   4. SEÇÃO PERFIL E INFOS
+   ========================================= */
+.foto-perfil {
+    display: block; margin: 0 auto 1.5rem;
+    width: 150px; height: 150px;
+    border-radius: 50%; object-fit: contain;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Ajuste da linha para o modo invertido */
-body.inverted .linha-separadora {
-    background: #444;
+.info-pessoal-container {
+    display: flex; align-items: center; gap: 1.5rem; margin-top: 1rem;
 }
-.accordion-container p {
-    margin-top: 1.5rem; /* Espaço maior antes do texto descritivo */
-    font-size: 0.95rem;
-    font-weight: 500;
+
+.foto-info {
+    width: 120px; height: 120px;
+    border-radius: 8px; object-fit: cover;
 }
+
+.lista-info { list-style: none; }
+.lista-info li strong { color: #6a1b9a; }
+body.inverted .lista-info li strong { color: #ba68c8; }
+
+/* =========================================
+   5. MÚSICA (VÍDEOS)
+   ========================================= */
+.video-list-container {
+    display: flex; gap: 1rem;
+    overflow-x: auto; padding: 1rem 0;
+}
+
+.video-item {
+    flex: 0 0 250px; height: 150px;
+    background: #000; border-radius: 8px; overflow: hidden;
+}
+
+.video-item iframe { width: 100%; height: 100%; }
+
+.timeline-label {
+    text-align: center; font-weight: bold; color: #6a1b9a;
+}
+body.inverted .timeline-label { color: #ba68c8; }
+
+/* =========================================
+   6. HOBBIES (ACCORDION)
+   ========================================= */
+.accordion-container p { margin-top: 1rem; font-weight: 500; }
 
 details {
-    margin-top: 0.5rem; /* Espaço menor entre o texto e a sua respectiva lista */
-    /* ... mantenha o restante das propriedades que já existem ... */
+    cursor: pointer; border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem; margin-bottom: 1rem;
 }
 
-/* Container para alinhar imagem e lista lado a lado */
-.info-pessoal-container {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
+summary { font-weight: bold; color: #6a1b9a; }
+body.inverted summary { color: #ba68c8; }
 
-/* Estilo da imagem colada à esquerda */
-.foto-info {
-    width: 120px;
-    height: 120px;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+.item-lista { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; }
+.item-lista img { width: 60px; height: 60px; border-radius: 4px; }
 
-/* Estilo da lista de informações */
-.lista-info {
-    list-style: none; /* Remove os pontos da lista */
-    padding: 0;
-}
-
-.lista-info li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-.lista-info li strong {
-    color: #6a1b9a; /* Roxo para os títulos dos pontos */
-}
-
-/* Ajuste das cores no modo invertido */
-body.inverted .lista-info li strong {
-    color: #ba68c8;
-}
-
-/* Responsividade: em telas pequenas, a foto fica em cima e o texto embaixo */
-@media (max-width: 600px) {
-    .info-pessoal-container {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* Espaçamento para o texto superior do card */
-.texto-superior-viagem {
-    margin-bottom: 1.5rem;
-}
-
-/* Container principal das viagens */
+/* =========================================
+   7. VIAGENS (HEXAGONAL)
+   ========================================= */
 .viagem-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
 }
 
-/* Estilo dos blocos de texto (esquerda e direita) */
-.viagem-bloco {
-    flex: 1;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-/* Estilo das imagens centrais (Agora Hexagonais) */
 .img-viagem {
-    width: 100px; /* Aumentei um pouco para o formato aparecer melhor */
-    height: 100px;
-    object-fit: cover;
-    /* Aplica o recorte em formato de hexágono */
+    width: 100px; height: 100px; object-fit: cover;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    background: #6a1b9a; /* Fundo roxo que aparece como borda se houver padding */
-    padding: 2px;
-    transition: transform 0.3s;
+    background: #6a1b9a; padding: 2px;
 }
 
-.img-viagem:hover {
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
-}
+.divisor-vertical { width: 1px; height: 60px; background: #eee; }
+body.inverted .divisor-vertical { background: #444; }
 
-/* Ajuste para o Modo Invertido */
-body.inverted .img-viagem {
-    background: #ba68c8;
-}
-
-/* Linha divisora vertical no meio */
-.divisor-vertical {
-    width: 1px;
-    height: 60px;
-    background-color: #eee;
-}
-
-/* Ajustes para o Modo Invertido */
-body.inverted .img-viagem {
-    border-color: #ba68c8;
-}
-
-body.inverted .divisor-vertical {
-    background-color: #444;
-}
-
-/* Responsividade: em telas pequenas, vira uma coluna */
+/* =========================================
+   8. RESPONSIVIDADE
+   ========================================= */
 @media (max-width: 600px) {
-    .viagem-container {
-        flex-direction: column;
-        gap: 20px;
+    .info-pessoal-container, .viagem-container {
+        flex-direction: column; text-align: center;
     }
-    .divisor-vertical {
-        width: 60px;
-        height: 1px;
-    }
+    .divisor-vertical { width: 60px; height: 1px; }
 }

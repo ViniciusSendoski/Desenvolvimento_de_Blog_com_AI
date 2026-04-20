@@ -9,9 +9,12 @@
 <body>
 
     <header>
+    <div class="header-content">
         <h1>Bem-vindo ao meu Blog</h1>
         <p>Desenvolvido em parceria com Gemini AI</p>
-    </header>
+    </div>
+    <button id="btn-toggle" onclick="toggleHeaderColor()" title="Inverter Cor">🌓</button>
+</header>
 
     <main class="container">
         <section class="perfil">
@@ -29,6 +32,30 @@
             <div class="card">
                 <h3>Hobbies</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+                <div class="accordion-container">
+                    <details>
+                        <summary>Filmes</summary>
+                        <div class="item-lista">
+                            <img src="https://via.placeholder.com/80" alt="Pânico 7">
+                            <div class="item-info">
+                                <h4>Pânico 7</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                <details>
+                    <summary>Jogos</summary>
+                    <div class="item-lista">
+                        <img src="https://via.placeholder.com/80" alt="Jogo Exemplo">
+                        <div class="item-info">
+                            <h4>Título do Jogo</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
             </div>
 
             <div class="card">
@@ -41,6 +68,13 @@
     <footer>
         <p>&copy; 2024 - Criado para a aula de WEB I</p>
     </footer>
+
+    <script>
+        function toggleHeaderColor() {
+            const header = document.querySelector('header');
+            header.classList.toggle('inverted');
+        }
+    </script>
 
 </body>
 </html>

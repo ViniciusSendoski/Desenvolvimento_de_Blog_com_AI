@@ -195,3 +195,48 @@ details {
     margin-top: 0.5rem; /* Espaço menor entre o texto e a sua respectiva lista */
     /* ... mantenha o restante das propriedades que já existem ... */
 }
+
+/* Container para alinhar imagem e lista lado a lado */
+.info-pessoal-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Estilo da imagem colada à esquerda */
+.foto-info {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilo da lista de informações */
+.lista-info {
+    list-style: none; /* Remove os pontos da lista */
+    padding: 0;
+}
+
+.lista-info li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.lista-info li strong {
+    color: #6a1b9a; /* Roxo para os títulos dos pontos */
+}
+
+/* Ajuste das cores no modo invertido */
+body.inverted .lista-info li strong {
+    color: #ba68c8;
+}
+
+/* Responsividade: em telas pequenas, a foto fica em cima e o texto embaixo */
+@media (max-width: 600px) {
+    .info-pessoal-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

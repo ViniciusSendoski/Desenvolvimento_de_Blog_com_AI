@@ -759,8 +759,92 @@ details {
 ---
 
 ### 5.0 
--   Prompt Sugerido:
--   Saida do Gemini: 
+-   Prompt Sugerido:Tendo o codigo.  
+Adicione um card para "Um pouco mais sobre mim".
+Colado na lateral esquerda deve ter uma imagem,  ao deve ter pontos de texto sendo eles.
+ Nome:
+ Ano de Nascimento:
+ Estado Civil:
+ Trabalho:
+ Escolaridade: 
+-   Saida do Gemini: Para adicionar o novo card "**Um pouco mais sobre mim**" com a imagem alinhada à esquerda e os pontos de texto solicitados, siga as instruções abaixo para alterar seu HTML e CSS.
+
+### 1. Alteração no HTML (`Index.html`)
+
+**Onde editar:** Insira este novo bloco dentro da `<section class="interesses">`. Recomendo colocá-lo como o primeiro card dessa seção, antes de "Minha Relação com a música".
+
+```html
+<div class="card">
+    <h3>Um pouco mais sobre mim</h3>
+    <div class="info-pessoal-container">
+        <img src="https://via.placeholder.com/150" alt="Foto Pessoal" class="foto-info">
+        <ul class="lista-info">
+            <li><strong>Nome:</strong> Vinícius</li>
+            <li><strong>Ano de Nascimento:</strong> [Seu Ano]</li>
+            <li><strong>Estado Civil:</strong> [Seu Estado Civil]</li>
+            <li><strong>Trabalho:</strong> [Seu Trabalho]</li>
+            <li><strong>Escolaridade:</strong> Acadêmico de TADS</li>
+        </ul>
+    </div>
+</div>
+```
+
+### 2. Alteração no CSS (`style.css`)
+
+**Onde editar:** Adicione estes estilos ao final do seu arquivo para garantir que a imagem fique colada à esquerda e o texto flua corretamente ao lado dela.
+
+```css
+/* Container para alinhar imagem e lista lado a lado */
+.info-pessoal-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Estilo da imagem colada à esquerda */
+.foto-info {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilo da lista de informações */
+.lista-info {
+    list-style: none; /* Remove os pontos da lista */
+    padding: 0;
+}
+
+.lista-info li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.lista-info li strong {
+    color: #6a1b9a; /* Roxo para os títulos dos pontos */
+}
+
+/* Ajuste das cores no modo invertido */
+body.inverted .lista-info li strong {
+    color: #ba68c8;
+}
+
+/* Responsividade: em telas pequenas, a foto fica em cima e o texto embaixo */
+@media (max-width: 600px) {
+    .info-pessoal-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+```
+
+### O que foi implementado:
+1.  **Layout Flexbox:** Usei `display: flex` para que a imagem e a lista fiquem em colunas paralelas dentro do card.
+2.  **Identidade Visual:** Mantive o uso do **Roxo** nos títulos em negrito (`<strong>`) para combinar com o restante do seu blog.
+3.  **Responsividade:** Adicionei um `@media query` simples. Se você abrir o site no celular, a imagem passará para cima do texto automaticamente para não "esmagar" as informações.
+4.  **Organização:** A classe `lista-info` removeu as "bolinhas" padrão da lista (`list-style: none`) para deixar o visual mais limpo, conforme a estética do seu projeto.
 -   Observações do cliclo:
 
 ---

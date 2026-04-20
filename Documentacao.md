@@ -313,14 +313,177 @@ Para o botão funcionar, precisamos de um pequeno script.
 1.  **Header:** Reduzi o `padding` e usei `position: relative` para "prender" o botão no canto superior.
 2.  **Toggle:** Usei uma classe `.inverted` no CSS. O JavaScript apenas liga/desliga essa classe.
 3.  **Expansão:** Usei `<details>` e `<summary>`. É a forma mais leve de fazer listas expansíveis sem precisar de um código complexo, e dentro de cada uma coloquei um `flexbox` (`item-lista`) para alinhar a imagem e o texto.
--   Observações do cliclo:
+-   Observações do cliclo: Obejetivos foram implementados.
 
 --- 
 
-### 2.0 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
+### 2.1 
+-   Prompt Sugerido: Tendo o codigo atual. Mude a cor principal para roxo, meu botão que troca a cor do painel deve inverter todo a pagina incluindo texto, 
+-   Saida do Gemini: Com base no seu código atual, aqui estão as alterações para mudar a cor principal para roxo e fazer com que o botão inverta as cores de toda a página (incluindo o texto) em vez de apenas o cabeçalho.
+
+### 1. Alteração no CSS (`style.css`)
+Você deve substituir as cores azuis (`#1a73e8`) pelo roxo e criar uma classe `.inverted` aplicada ao `body` para inverter o site todo.
+
+**Onde editar:** Substitua o conteúdo do seu `style.css` por este (ajustado para roxo e modo invertido geral):
+
+```css
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Transição suave para a inversão */
+}
+
+/* CLASSE DE INVERSÃO TOTAL */
+body.inverted {
+    background-color: #1a1a1a; /* Fundo escuro */
+    color: #f4f7f6;           /* Texto claro */
+}
+
+header {
+    background-color: #6a1b9a; /* Roxo Principal */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* Ajuste do Header quando o corpo está invertido */
+body.inverted header {
+    background-color: #4a148c; /* Roxo mais escuro no modo invertido */
+}
+
+#btn-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+details {
+    margin-top: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+summary {
+    font-weight: bold;
+    color: #6a1b9a; /* Roxo nos títulos expansíveis */
+    outline: none;
+}
+
+body.inverted summary {
+    color: #ba68c8; /* Roxo mais claro para ler melhor no fundo escuro */
+}
+
+.item-lista {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    cursor: default;
+}
+
+.item-lista img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.foto-perfil {
+    display: block;
+    margin: 0 auto 1.5rem;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 50%;
+}
+
+.perfil {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.interesses {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-left: 5px solid #6a1b9a; /* Detalhe lateral Roxo */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: background-color 0.3s;
+}
+
+/* Ajuste dos cards no modo invertido */
+body.inverted .card {
+    background: #2d2d2d;
+    border-left-color: #ba68c8;
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    color: #6a1b9a;
+}
+
+body.inverted .card h3 {
+    color: #ba68c8;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+```
+
+### 2. Alteração no JavaScript (`Index.html`)
+Para que o botão afete a página inteira, precisamos trocar o alvo da função de `header` para o `body`.
+
+**Onde editar:** No final do seu arquivo `Index.html`, substitua a função dentro da tag `<script>` por esta:
+
+```javascript
+function toggleHeaderColor() {
+    // Agora selecionamos o 'body' para inverter as cores de todo o documento
+    const body = document.body;
+    body.classList.toggle('inverted');
+}
+```
+
+### O que mudou na lógica:
+1.  **Cor Principal:** Todas as referências ao azul `#1a73e8` foram trocadas por tons de roxo (`#6a1b9a`).
+2.  **Inversão Total:** Criamos seletores como `body.inverted .card` no CSS. Isso garante que, quando o botão for clicado, os cards fiquem escuros e o texto mude de cor para manter o contraste.
+3.  **JavaScript:** O comando `document.body.classList.toggle('inverted')` é o jeito mais eficiente de criar um "Modo Escuro/Invertido" completo.
+-   Observações do cliclo: Foram implementadas mudanças visuais basicas, bem como aplicar inverção de cor para toda a pagina.
 
 ---
 

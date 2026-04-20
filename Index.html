@@ -71,8 +71,9 @@
 
     <script>
         function toggleHeaderColor() {
-            const header = document.querySelector('header');
-            header.classList.toggle('inverted');
+            // Agora selecionamos o 'body' para inverter as cores de todo o documento
+            const body = document.body;
+            body.classList.toggle('inverted');
         }
     </script>
 

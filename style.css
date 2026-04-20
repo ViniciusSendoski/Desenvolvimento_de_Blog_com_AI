@@ -173,3 +173,15 @@ footer {
 body.inverted .timeline-label {
     color: #ba68c8;
 }
+
+.linha-separadora {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 1rem 0;
+}
+
+/* Ajuste da linha para o modo invertido */
+body.inverted .linha-separadora {
+    background: #444;
+}

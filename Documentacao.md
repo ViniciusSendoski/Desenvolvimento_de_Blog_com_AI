@@ -580,14 +580,118 @@ Se você adicionar mais vídeos no futuro dentro da `video-list-container`, eles
 
 ---
 
-### 2.0 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
+### 4.0 
+-   Prompt Sugerido: Tendo o código atual.
+altere estrutura Hobbis, tendo texto. Separe hobbis das lista por uma linha, mas ainda dentro do hobbis.
+Abaixo descrição textual da lista: Lista Filmes tendo espaços para adicionar 3 filmes.
+Abaixo descrição textual da lista: Lista Jogos tendo espaços para adicionar 3 jogos..
+Abaixo descrição textual da lista: Lista Manhwa tendo espaços para adicionar 3 manhwas.
+Abaixo descrição textual da lista: Lista Light Novel tendo espaços para adicionar 2 light novels.
+-   Saida do Gemini: Para atualizar a seção de **Hobbies** conforme solicitado, vamos ajustar a estrutura do card para incluir a linha separadora e organizar os itens em listas de 3 (ou 2) espaços dentro de cada categoria expansível.
+
+### 1. Alteração no HTML (`Index.html`)
+
+**Onde editar:** Substitua todo o conteúdo do `<div class="card">` correspondente aos **Hobbies** (atualmente o segundo card) por este bloco:
+
+```html
+<div class="card">
+    <h3>Hobbies</h3>
+    <p>Estes são os meus passatempos favoritos e as obras que acompanho no momento.</p>
+    
+    <hr class="linha-separadora"> <div class="accordion-container">
+        <details>
+            <summary>Lista Filmes</summary>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Filme 1">
+                <div class="item-info"><h4>Título Filme 1</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Filme 2">
+                <div class="item-info"><h4>Título Filme 2</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Filme 3">
+                <div class="item-info"><h4>Título Filme 3</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Lista Jogos</summary>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Jogo 1">
+                <div class="item-info"><h4>Título Jogo 1</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Jogo 2">
+                <div class="item-info"><h4>Título Jogo 2</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Jogo 3">
+                <div class="item-info"><h4>Título Jogo 3</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Lista Manhwa</summary>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Manhwa 1">
+                <div class="item-info"><h4>Título Manhwa 1</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Manhwa 2">
+                <div class="item-info"><h4>Título Manhwa 2</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Manhwa 3">
+                <div class="item-info"><h4>Título Manhwa 3</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Lista Light Novel</summary>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Light Novel 1">
+                <div class="item-info"><h4>Título LN 1</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+            <div class="item-lista">
+                <img src="https://via.placeholder.com/80" alt="Light Novel 2">
+                <div class="item-info"><h4>Título LN 2</h4><p>Lorem ipsum dolor sit amet.</p></div>
+            </div>
+        </details>
+    </div>
+</div>
+```
+
+### 2. Alteração no CSS (`style.css`)
+
+Para que a linha separadora fique discreta e acompanhe a identidade visual roxa, adicione este estilo ao seu arquivo CSS:
+
+**Onde editar:** Pode adicionar ao final do arquivo ou próximo aos estilos dos cards.
+
+```css
+.linha-separadora {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 1rem 0;
+}
+
+/* Ajuste da linha para o modo invertido */
+body.inverted .linha-separadora {
+    background: #444;
+}
+```
+
+### O que mudou:
+1.  **Linha Separadora:** Adicionamos a tag `<hr>` com uma classe personalizada para criar a divisão visual dentro do card de Hobbies.
+2.  **Estrutura de Listas:** Expandimos as seções para conter exatamente a quantidade de espaços solicitada (3 para Filmes, Jogos e Manhwas; 2 para Light Novels).
+3.  **Identificação Textual:** Atualizamos os títulos de cada seção expansível (`<summary>`) conforme o seu pedido ("Lista Filmes", "Lista Jogos", etc.).
+4.  **Imagens e Texto:** Cada item já possui a estrutura de imagem (`img`), título (`h4`) e descrição (`p`) pronta para você preencher.
+-   Observações do cliclo: Codigo se aproxima cada veiz mais a uma caixa preta para meu conhecimentos sobre html e css. Devido a meu comando incoerente faltou um ponto a adicionar ao HTML.
 
 ---
 
-### 2.0 
+### 4.1 
 -   Prompt Sugerido:
 -   Saida do Gemini: 
 -   Observações do cliclo:

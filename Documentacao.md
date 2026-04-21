@@ -1802,10 +1802,94 @@ Certifique-se de que os links dentro da sua `div class="card"` de música sigam 
 
 ### Ciclo 8.3 
 -   Prompt Sugerido: Tendo o codigo.
-EStava atualizando o html, entretanto tenho dois problemas na parte de musicas. 
-Primeiro como na imagem os videos não estão arregando.
-Segundo quero que sejá exibido apenas 3 videos e para chegar ao demais deve haver uma barra de rolagem horizontal, em que o primeiro seja conectado em um loop ao ultimo exemplo, video1, video2, video3,video4,[video1, video2, video3], video4,video1, video2, video3,video4.
+Minha aba videos esta com os 3 videos como solicitado, entretanto estão todos esticados, gostaria que o tamanho deles fosse fixo.
+alguns videos estão indisponiveis, por qual motivo?
 -   Saida do Gemini:
--   Observações do cliclo: Barra horizontal funcional, entretanto video esticado
+O problema dos vídeos esticados e das mensagens de "Indisponível" é muito comum ao lidar com o YouTube. Vamos resolver isso agora:
+
+### 1. Por que alguns vídeos estão indisponíveis?
+Existem dois motivos principais no seu código:
+* **Link incorreto:** No seu HTML, notei que alguns links estão como `youtube.com/watch?v=...`. O YouTube **bloqueia** o carregamento desses links dentro de sites por segurança. Para funcionar, você **precisa** trocar o `/watch?v=` por `/embed/`.
+* **Restrição do Autor:** Alguns artistas desativam a opção de "Incorporação" (Embed). Se mesmo com o link `/embed/` não funcionar, você terá que escolher outro vídeo ou outra versão da mesma música.
+
+### 2. Consertando o Tamanho (CSS)
+Para que eles não fiquem esticados, vamos definir uma largura fixa e garantir que o container não force o crescimento deles.
+
+No seu **`style.css`**, substitua ou ajuste estas classes:
+
+```css
+/* Container dos vídeos */
+.video-list-container {
+    display: flex;
+    gap: 1.5rem; /* Espaço entre os vídeos */
+    overflow-x: auto; /* Barra de rolagem se houver muitos */
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory; /* Efeito de "trava" ao deslizar */
+}
+
+/* Cada item de vídeo (Ajuste aqui para tamanho fixo) */
+.video-item {
+    flex: 0 0 300px; /* O vídeo terá sempre 300px, ele não estica e não encolhe */
+    height: 170px;   /* Altura fixa para manter a proporção 16:9 */
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+```
+
+---
+
+### 3. Ajustando os Links (HTML)
+No seu **`Index.html`**, certifique-se de que os links sigam exatamente este formato. Veja o exemplo com 3 vídeos famosos para teste:
+
+```html
+<div class="card">
+    <h3>Minha Relação com a música</h3>
+    <div class="video-list-container">
+        
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/IxX_QHay02M" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/5mXvS7r9S_0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/qreGZ_J9h6k" allowfullscreen></iframe>
+        </div>
+
+    </div>
+    <p class="timeline-label">Período: 2020 — 2026</p>
+</div>
+```
+
+### O que isso resolve?
+* **`flex: 0 0 300px`**: O primeiro `0` diz "não cresça", o segundo `0` diz "não encolha" e os `300px` definem o tamanho exato. Isso impede que eles ocupem a tela toda e fiquem "esticados".
+* **`/embed/`**: É o padrão oficial do YouTube para sites. Sem isso, o vídeo aparecerá como indisponível ou com erro de conexão.
+
+**Dica:** Se quiser que apareçam exatamente 3 vídeos lado a lado sem sobrar espaço em telas grandes, você pode usar `flex: 0 0 calc(33.33% - 1rem)`, mas para evitar que fiquem muito pequenos no celular, o `300px` fixo é mais seguro!
+-   Observações do cliclo: Ainda esticado, mas utilizando flex: 0 0 calc(33.33% - 1rem) na seguinte parte do .css
+```css
+/* Cada item de vídeo (Ajuste aqui para tamanho fixo) */
+.video-item {
+    flex: 0 0 calc(33.33% - 1rem); /* O vídeo terá sempre 300px, ele não estica e não encolhe */
+    height: 170px;   /* Altura fixa para manter a proporção 16:9 */
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+```
+Ficou da forma que eu quero.
 
 ## 3. Conclusão

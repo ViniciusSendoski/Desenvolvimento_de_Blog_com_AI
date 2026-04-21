@@ -7,7 +7,12 @@
     Esse documento possui o passo a passo dos prompts sugeridos e objetivos para o Blog. Para essa atividade foi escolhido o uso do Gemini AI.
 
 ## 2. Ciclos de Desenvolvimento
-### 1.0 Definições iniciais para conteudo e criação do codigo base  
+
+## 3. Conclusão
+
+
+## Cliclos
+### 1.0   
 -   Prompt Sugerido: Possuo uma atividade de WEB I, usando uma AI(Gemini), devo realizar uma programação em pares, com o intuito de criar um blog simples sobre mim, deve possuir uma imagem minha e separar os arquivos entre HTML e CSS.
 Para a imagem use o logo do gemini por meio do link, depois substituirei por uma imagem minha na pasta, junto aos arquivos.
 Use o CSS para tratar a imagem permitindo redimensioná-la. Bem como mudanças que deixam a pagina mais elegante.
@@ -1659,11 +1664,40 @@ body.inverted .perfil h2 {
 Com estas mudanças, a secção "Sobre Mim" aparecerá dentro de um bloco nítido e legível, independentemente de quão agitado seja o GIF de fundo.
 -   Observações do cliclo: Foi adicionado transparencia posibilitando ler o que esta no fundo.
 ### 8.2 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
-### 2.0 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
-## 3. Conclusão
+-   Prompt Sugerido: Tendo o codigo.
+O transparente realemente ficou bom, adicione ele a Um pouco mais sobre mim, Minha relação com a musica, hobbis, viagens. 
+-   Saida do Gemini: Com certeza! Para manter a consistência visual, o ideal é aplicar essa mesma lógica de "card semi-transparente" em todas as seções principais.
+
+No seu arquivo **`style.css`**, localize a classe `.card` (que é usada em todas essas seções que você mencionou) e atualize-a conforme abaixo:
+
+```css
+/* =========================================
+   3. COMPONENTES DE CARD
+   ========================================= */
+
+/* .card: O bloco que contém cada seção. 
+   Atualizado para ser semi-transparente e combinar com a seção Perfil. */
+.card {
+    background: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+    padding: 1.5rem;
+    border-left: 5px solid #6a1b9a; /* Barra lateral roxa */
+    border-radius: 12px; /* Bordas arredondadas para combinar com o perfil */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+    backdrop-filter: blur(5px); /* Opcional: Adiciona um leve desfoque ao GIF no fundo do card */
+}
+
+/* Ajuste dos cards no modo invertido (Dark Mode) */
+body.inverted .card {
+    background: rgba(45, 45, 45, 0.9); /* Fundo escuro semi-transparente */
+    border-left-color: #ba68c8;
+}
+```
+
+### O que foi alterado:
+1.  **`background: rgba(255, 255, 255, 0.85)`**: Substituímos o branco sólido pelo branco com transparência.
+2.  **`border-radius: 12px`**: Aumentamos um pouco o arredondamento (era 8px) para ficar igual ao que colocamos na seção de perfil anteriormente.
+3.  **`backdrop-filter: blur(5px)`**: Adicionei essa propriedade (opcional). Ela cria um efeito de "vidro fosco", deixando o GIF atrás do card levemente embaçado, o que ajuda muito na leitura do texto.
+
+Como no seu HTML as seções de Música, Hobbies e Viagens já utilizam a classe `class="card"`, essa alteração será aplicada automaticamente em todas elas de uma vez só!
+-   Observações do cliclo: Codigo é padronizado para todos terem trasparencia

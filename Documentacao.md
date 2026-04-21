@@ -1604,10 +1604,61 @@ body.inverted {
 4.  **`body.inverted { background-image: none; }`**: No modo escuro/invertido, o fundo se torna cinza escuro. Removi a imagem de fundo aqui para que o GIF (que pode ser muito vibrante ou claro) não brigue com o texto claro, mantendo a acessibilidade.
 -   Observações do cliclo: Adicionado imagem de fundo.
 ### 8.1 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
-### 2.0 
+-   Prompt Sugerido: Tendo o codigo.
+no .html a class perfil não esta legivel por causa do fundo, como na imagem anexada, quero que fique legivel.
+-   Saida do Gemini: Para tornar a secção `.perfil` legível sobre o fundo animado (o GIF), a melhor estratégia é adicionar um fundo semi-transparente, um pouco de preenchimento (`padding`) e arredondar as bordas para que ele se destaque como um "card", tal como fizeste com a secção de interesses.
+
+Aqui estão as alterações necessárias no teu ficheiro **`style.css`**:
+
+### 1. Adicionar estilo à classe `.perfil`
+Localiza ou adiciona este bloco no teu CSS. Ele cria uma camada branca semi-transparente atrás do texto:
+
+```css
+/* .perfil: Adicionamos um fundo para destacar o texto do GIF de fundo */
+.perfil {
+    text-align: center;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.85); /* Fundo branco com 85% de opacidade */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #6a1b9a; /* Mantém a identidade visual dos outros cards */
+}
+
+/* Ajuste para o Modo Invertido (Escuro) */
+body.inverted .perfil {
+    background: rgba(45, 45, 45, 0.9); /* Fundo escuro semi-transparente */
+    border-left-color: #ba68c8;
+}
+```
+
+### 2. Pequeno ajuste no Título (`h2`) e Texto (`p`)
+Para garantir que o contraste seja perfeito, podes reforçar a cor dos elementos dentro do perfil:
+
+```css
+.perfil h2 {
+    color: #6a1b9a;
+    margin-bottom: 1rem;
+}
+
+body.inverted .perfil h2 {
+    color: #ba68c8;
+}
+
+.perfil p {
+    max-width: 600px;
+    margin: 0 auto; /* Centraliza o texto se ele for curto */
+}
+```
+
+### O que isto altera?
+* **`background: rgba(255, 255, 255, 0.85)`**: O "a" no final (alpha) controla a transparência. 0.85 é o ideal para esconder o GIF o suficiente para ler o texto, mas ainda deixar transparecer que há algo por trás.
+* **`padding: 2rem`**: Cria um respiro interno para que o texto não encoste nas bordas do novo fundo.
+* **`border-radius`**: Arredonda os cantos para combinar com o design moderno do resto do site.
+
+Com estas mudanças, a secção "Sobre Mim" aparecerá dentro de um bloco nítido e legível, independentemente de quão agitado seja o GIF de fundo.
+-   Observações do cliclo: Foi adicionado transparencia posibilitando ler o que esta no fundo.
+### 8.2 
 -   Prompt Sugerido:
 -   Saida do Gemini: 
 -   Observações do cliclo:

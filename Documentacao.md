@@ -1800,7 +1800,7 @@ Certifique-se de que os links dentro da sua `div class="card"` de música sigam 
 
 ---
 
-### Ciclo 8.3 
+### Ciclo 8.4 
 -   Prompt Sugerido: Tendo o codigo.
 Minha aba videos esta com os 3 videos como solicitado, entretanto estão todos esticados, gostaria que o tamanho deles fosse fixo.
 alguns videos estão indisponiveis, por qual motivo?

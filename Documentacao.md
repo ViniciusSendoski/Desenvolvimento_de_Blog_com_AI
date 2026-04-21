@@ -1553,11 +1553,57 @@ body.inverted summary { color: #ba68c8; }
 }
 ```
 -   Observações do cliclo: Adicionando comentarios ao .css
-### 2.0 
--   Prompt Sugerido:
--   Saida do Gemini: 
--   Observações do cliclo:
-### 2.0 
+### 8.0 
+-   Prompt Sugerido: Tendo o codigo:
+Adicione o awoo_eua.gif como fundo para o site.
+-   Saida do Gemini: Entendido! Como você forneceu o arquivo `awoo_eua.gif` e ele está acessível na mesma estrutura, vamos atualizar o CSS para adicioná-lo como fundo do site.
+
+### Alteração no CSS (`style.css`)
+
+**Onde editar:** No início do seu arquivo `style.css`, procure pela tag `body` e adicione as propriedades de `background-image` e `background-size`. Também fiz uma pequena otimização no `body.inverted` para desativar a imagem de fundo quando o modo escuro/invertido estiver ativo, garantindo o contraste.
+
+```css
+/* =========================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+
+/* * (Asterisco): Seletor universal. Aplica as regras a todos os elementos da página. 
+   Aqui, removemos margens e preenchimentos padrão que os navegadores trazem. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Faz com que bordas e padding não aumentem o tamanho total do elemento */
+}
+
+/* body: Define as configurações de base do documento, como fonte e cor de fundo. */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Suaviza a troca de cores do Modo Invertido */
+
+    /* NOVA ADIÇÃO: Fundo com o GIF fornecido */
+    background-image: url('awoo_eua.gif'); /* Link para o GIF */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-attachment: fixed; /* Mantém o fundo fixo ao rolar a página */
+    background-position: center; /* Centraliza a imagem */
+}
+
+/* body.inverted: Estilo aplicado quando a classe "inverted" é adicionada ao body via JavaScript. */
+body.inverted {
+    background-color: #1a1a1a;
+    color: #f4f7f6;
+    background-image: none; /* Desativa a imagem de fundo no modo invertido para não atrapalhar a leitura */
+}
+```
+
+### Explicação Conceitual:
+1.  **`background-image: url('awoo_eua.gif');`**: Esta propriedade diz ao navegador para usar o arquivo GIF fornecido como o preenchimento de fundo da tag `<body>` (o corpo inteiro da página).
+2.  **`background-size: cover;`**: Garante que o GIF se estenda para cobrir toda a área da janela do navegador, sem criar repetições indesejadas e sem deixar espaços em branco.
+3.  **`background-attachment: fixed;`**: Faz com que o GIF fique parado no fundo enquanto você rola o conteúdo do blog para cima ou para baixo. É um efeito visual bem comum.
+4.  **`body.inverted { background-image: none; }`**: No modo escuro/invertido, o fundo se torna cinza escuro. Removi a imagem de fundo aqui para que o GIF (que pode ser muito vibrante ou claro) não brigue com o texto claro, mantendo a acessibilidade.
+-   Observações do cliclo: Adicionado imagem de fundo.
+### 8.1 
 -   Prompt Sugerido:
 -   Saida do Gemini: 
 -   Observações do cliclo:

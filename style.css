@@ -13,16 +13,22 @@
 /* body: Define as configurações de base do documento, como fonte e cor de fundo. */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s; /* Suaviza a troca de cores do Modo Invertido */
+
+    /* NOVA ADIÇÃO: Fundo com o GIF fornecido */
+    background-image: url('awoo_eua.gif'); /* Link para o GIF */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-attachment: fixed; /* Mantém o fundo fixo ao rolar a página */
+    background-position: center; /* Centraliza a imagem */
 }
 
 /* body.inverted: Estilo aplicado quando a classe "inverted" é adicionada ao body via JavaScript. */
 body.inverted {
     background-color: #1a1a1a;
     color: #f4f7f6;
+    background-image: none; /* Desativa a imagem de fundo no modo invertido para não atrapalhar a leitura */
 }
 
 /* .container: Centraliza o conteúdo principal e limita a largura para não espalhar em telas muito grandes. */

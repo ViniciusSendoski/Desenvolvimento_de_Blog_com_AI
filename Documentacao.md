@@ -7,12 +7,8 @@
     Esse documento possui o passo a passo dos prompts sugeridos e objetivos para o Blog. Para essa atividade foi escolhido o uso do Gemini AI.
 
 ## 2. Ciclos de Desenvolvimento
-
-## 3. Conclusão
-
-
-## Cliclos
-### 1.0   
+Foram usados comandos simples, assim para chegar em uma implementação satisfatoria foram necessarios 8 ciclos na implementação. 
+### Ciclo 1.0   
 -   Prompt Sugerido: Possuo uma atividade de WEB I, usando uma AI(Gemini), devo realizar uma programação em pares, com o intuito de criar um blog simples sobre mim, deve possuir uma imagem minha e separar os arquivos entre HTML e CSS.
 Para a imagem use o logo do gemini por meio do link, depois substituirei por uma imagem minha na pasta, junto aos arquivos.
 Use o CSS para tratar a imagem permitindo redimensioná-la. Bem como mudanças que deixam a pagina mais elegante.
@@ -164,7 +160,7 @@ footer {
 
 ---
 
-### 2.0 
+### Ciclo 2.0 
 -   Prompt Sugerido: Tendo os códigos base, quando adicionar uma nova função diga aonde ela fica para não ter o retrabalho de reescrever todo o código.
 O painel azul deve ser menor, tendo no canto superior direito um botão para inverter a cor do painel azul.
 gostaria de adicionar um estrutura que ao clicar expande uma lista relacionada a palavra da extrutura, por exemplo abaixo de hobbies 4 estruturas:
@@ -322,7 +318,7 @@ Para o botão funcionar, precisamos de um pequeno script.
 
 --- 
 
-### 2.1 
+### Ciclo 2.1 
 -   Prompt Sugerido: Tendo o codigo atual. Mude a cor principal para roxo, meu botão que troca a cor do painel deve inverter todo a pagina incluindo texto, 
 -   Saida do Gemini: Com base no seu código atual, aqui estão as alterações para mudar a cor principal para roxo e fazer com que o botão inverta as cores de toda a página (incluindo o texto) em vez de apenas o cabeçalho.
 
@@ -492,7 +488,7 @@ function toggleHeaderColor() {
 
 ---
 
-### 3.0 
+### Ciclo 3.0 
 -   Prompt Sugerido: Tendo o codigo atual. 
 Altere "Gostos musicais" para "Minha Relação com a musica".
 Quero fazer uma lista de objetos, sendo cada objeto um video do youtube.
@@ -585,7 +581,7 @@ Se você adicionar mais vídeos no futuro dentro da `video-list-container`, eles
 
 ---
 
-### 4.0 
+### Ciclo 4.0 
 -   Prompt Sugerido: Tendo o código atual.
 altere estrutura Hobbis, tendo texto. Separe hobbis das lista por uma linha, mas ainda dentro do hobbis.
 Abaixo descrição textual da lista: Lista Filmes tendo espaços para adicionar 3 filmes.
@@ -696,7 +692,7 @@ body.inverted .linha-separadora {
 
 ---
 
-### 4.1 
+### Ciclo 4.1 
 -   Prompt Sugerido: Tendo o codigo. 
 acima que cada lista em hobbis teve existir um texto, por exemplo:
 ...
@@ -763,7 +759,7 @@ details {
 
 ---
 
-### 5.0 
+### Ciclo 5.0 
 -   Prompt Sugerido:Tendo o codigo.  
 Adicione um card para "Um pouco mais sobre mim".
 Colado na lateral esquerda deve ter uma imagem,  ao deve ter pontos de texto sendo eles.
@@ -854,7 +850,7 @@ body.inverted .lista-info li strong {
 
 ---
 
-### 6.0 
+### Ciclo 6.0 
 -   Prompt Sugerido: Tendo o codigo.  
 Vamos alterar o Card lazer, agora será apenas "Viagens".
 para o corpo teremos um texto na parte superior.
@@ -963,7 +959,7 @@ body.inverted .divisor-vertical {
 
 ---
 
-### 6.1 
+### Ciclo 6.1 
 -   Prompt Sugerido:Tendo o codigo.
 já foi usado circulo em imagem antes. para o card Viagens altere o circulo sobre a imagem para hexagono.
 -   Saida do Gemini: Para transformar as imagens de viagens em hexágonos, usaremos a propriedade CSS `clip-path`. Essa é a forma mais moderna de criar formas geométricas em imagens sem precisar editá-las fora do código.
@@ -1312,7 +1308,7 @@ body.inverted .divisor-vertical { background: #444; }
 
 Agora seu projeto está com "cara de profissional", seguindo o que o mercado espera de um desenvolvedor. Pronto para o próximo passo?
 -   Observações do cliclo: Foi organizado todo o codigo para que seja melhor compreendido, mesmo enviando os arquivos para AI manter o contexto, a extrutura dos Hobbis foi perdida.
-### 7.1 
+### Ciclo 7.1 
 -   Prompt Sugerido:Quero que adicione comentario para todas as funções no .css
 -   Saida do Gemini: Adicionar comentários detalhados no CSS é excelente para revisar a lógica do layout depois de um tempo sem mexer no código.
 
@@ -1558,7 +1554,7 @@ body.inverted summary { color: #ba68c8; }
 }
 ```
 -   Observações do cliclo: Adicionando comentarios ao .css
-### 8.0 
+### Ciclo 8.0 
 -   Prompt Sugerido: Tendo o codigo:
 Adicione o awoo_eua.gif como fundo para o site.
 -   Saida do Gemini: Entendido! Como você forneceu o arquivo `awoo_eua.gif` e ele está acessível na mesma estrutura, vamos atualizar o CSS para adicioná-lo como fundo do site.
@@ -1608,7 +1604,7 @@ body.inverted {
 3.  **`background-attachment: fixed;`**: Faz com que o GIF fique parado no fundo enquanto você rola o conteúdo do blog para cima ou para baixo. É um efeito visual bem comum.
 4.  **`body.inverted { background-image: none; }`**: No modo escuro/invertido, o fundo se torna cinza escuro. Removi a imagem de fundo aqui para que o GIF (que pode ser muito vibrante ou claro) não brigue com o texto claro, mantendo a acessibilidade.
 -   Observações do cliclo: Adicionado imagem de fundo.
-### 8.1 
+### Ciclo 8.1 
 -   Prompt Sugerido: Tendo o codigo.
 no .html a class perfil não esta legivel por causa do fundo, como na imagem anexada, quero que fique legivel.
 -   Saida do Gemini: Para tornar a secção `.perfil` legível sobre o fundo animado (o GIF), a melhor estratégia é adicionar um fundo semi-transparente, um pouco de preenchimento (`padding`) e arredondar as bordas para que ele se destaque como um "card", tal como fizeste com a secção de interesses.
@@ -1663,7 +1659,7 @@ body.inverted .perfil h2 {
 
 Com estas mudanças, a secção "Sobre Mim" aparecerá dentro de um bloco nítido e legível, independentemente de quão agitado seja o GIF de fundo.
 -   Observações do cliclo: Foi adicionado transparencia posibilitando ler o que esta no fundo.
-### 8.2 
+### Ciclo 8.2 
 -   Prompt Sugerido: Tendo o codigo.
 O transparente realemente ficou bom, adicione ele a Um pouco mais sobre mim, Minha relação com a musica, hobbis, viagens. 
 -   Saida do Gemini: Com certeza! Para manter a consistência visual, o ideal é aplicar essa mesma lógica de "card semi-transparente" em todas as seções principais.
@@ -1701,3 +1697,115 @@ body.inverted .card {
 
 Como no seu HTML as seções de Música, Hobbies e Viagens já utilizam a classe `class="card"`, essa alteração será aplicada automaticamente em todas elas de uma vez só!
 -   Observações do cliclo: Codigo é padronizado para todos terem trasparencia
+---
+
+### Ciclo 8.3 
+-   Prompt Sugerido: Tendo o codigo.
+EStava atualizando o html, entretanto tenho dois problemas na parte de musicas. 
+Primeiro como na imagem os videos não estão arregando.
+Segundo quero que sejá exibido apenas 3 videos e para chegar ao demais deve haver uma barra de rolagem horizontal, em que o primeiro seja conectado em um loop ao ultimo exemplo, video1, video2, video3,video4,[video1, video2, video3], video4,video1, video2, video3,video4.
+-   Saida do Gemini:Para resolver esses dois problemas, precisamos fazer ajustes pontuais no HTML e no CSS.
+
+### 1. Por que os vídeos não carregam?
+O YouTube bloqueia o carregamento de vídeos se você usar o link da barra de endereços (ex: `watch?v=...`) dentro de um `iframe`. Para funcionar, você deve usar o formato de **incorporação (embed)**.
+
+* **Errado:** `youtube.com/watch?v=IxX_QHay02M`
+* **Certo:** `youtube.com/embed/IxX_QHay02M`
+
+### 2. Barra de Rolagem Horizontal
+Para exibir apenas 3 vídeos e permitir a rolagem, ajustaremos o `flex-basis` de cada item para aproximadamente `31%`. 
+
+> **Nota sobre o Loop Infinito:** Um loop infinito real (onde o vídeo 4 volta para o 1 sem bater no final da barra) exige um código complexo de JavaScript. No entanto, o efeito de "carrossel com barra de rolagem" que mostra 3 vídeos por vez é facilmente resolvido com o CSS abaixo.
+
+---
+
+### Atualização no CSS (`style.css`)
+
+Substitua a parte dos vídeos por esta:
+
+```css
+/* Container dos vídeos com rolagem horizontal */
+.video-list-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto; /* Ativa a barra de rolagem horizontal */
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory; /* Faz os vídeos "travarem" na posição certa ao rolar */
+    scrollbar-width: thin; /* Barra mais discreta no Firefox */
+}
+
+/* Estilização da barra de rolagem para Chrome/Edge/Safari */
+.video-list-container::-webkit-scrollbar {
+    height: 8px;
+}
+.video-list-container::-webkit-scrollbar-thumb {
+    background: #6a1b9a;
+    border-radius: 10px;
+}
+
+/* Cada item de vídeo */
+.video-item {
+    flex: 0 0 calc(33.33% - 1rem); /* Define que cada vídeo ocupa 1/3 do espaço menos o gap */
+    min-width: 250px; /* Garante que em telas pequenas o vídeo não fique minúsculo */
+    height: 180px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    scroll-snap-align: start; /* Alinha o vídeo ao início do container ao rolar */
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+```
+
+---
+
+### Atualização no HTML (`Index.html`)
+
+Certifique-se de que os links dentro da sua `div class="card"` de música sigam este padrão de `/embed/`:
+
+```html
+<div class="card">
+    <h3>Minha Relação com a música</h3>
+    <p>Arraste para o lado para ver mais vídeos.</p>
+    
+    <div class="video-list-container">
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/IxX_QHay02M" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/qreGZ_J9h6k" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/5mXvS7r9S_0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_AQUI" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+```
+
+### O que mudou:
+1.  **Links Corrigidos:** O uso do `/embed/` faz com que o YouTube permita a exibição dentro do seu site.
+2.  **`scroll-snap`**: Adicionei um efeito de "imã". Quando você rola, o navegador empurra o vídeo automaticamente para ficar bem alinhado na tela.
+3.  **Responsividade**: O `calc(33.33% - 1rem)` força a exibição de 3 vídeos por vez no computador. Se a tela diminuir, o `min-width: 250px` garante que os vídeos continuem legíveis, ajustando a quantidade visível.
+-   Observações do cliclo: Barra horizontal funcional, entretanto video esticado
+
+---
+
+### Ciclo 8.3 
+-   Prompt Sugerido: Tendo o codigo.
+EStava atualizando o html, entretanto tenho dois problemas na parte de musicas. 
+Primeiro como na imagem os videos não estão arregando.
+Segundo quero que sejá exibido apenas 3 videos e para chegar ao demais deve haver uma barra de rolagem horizontal, em que o primeiro seja conectado em um loop ao ultimo exemplo, video1, video2, video3,video4,[video1, video2, video3], video4,video1, video2, video3,video4.
+-   Saida do Gemini:
+-   Observações do cliclo: Barra horizontal funcional, entretanto video esticado
+
+## 3. Conclusão

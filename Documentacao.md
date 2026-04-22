@@ -7,7 +7,7 @@
     Esse documento possui o passo a passo dos prompts sugeridos e objetivos para o Blog. Para essa atividade foi escolhido o uso do Gemini AI.
 
 ## 2. Ciclos de Desenvolvimento
-Foram usados comandos simples, assim para chegar em uma implementação satisfatoria foram necessarios 8 ciclos na implementação. 
+Foram usados comandos simples, assim para chegar em uma implementação satisfatoria foram necessarios 8 ciclos na implementação, tambem existiram sub ciclos que não trouxeram mudanças estruturais, entretato foram mais esteticas e valeram a pena. 
 ### Ciclo 1.0   
 -   Prompt Sugerido: Possuo uma atividade de WEB I, usando uma AI(Gemini), devo realizar uma programação em pares, com o intuito de criar um blog simples sobre mim, deve possuir uma imagem minha e separar os arquivos entre HTML e CSS.
 Para a imagem use o logo do gemini por meio do link, depois substituirei por uma imagem minha na pasta, junto aos arquivos.
@@ -1893,3 +1893,6 @@ No seu **`Index.html`**, certifique-se de que os links sigam exatamente este for
 Ficou da forma que eu quero.
 
 ## 3. Conclusão
+
+Devido a prompts ineficientes exigiu um tempo consideravel para a criação do Blog, Usando Ai é possivel, mas poderia ser mais eficiente.
+O ponto positivo foi que devido a escopo quase nenhum codigo precisou ser alterado manualmente, o que seria dificil considerando meu conhecimento atual de CSS.
